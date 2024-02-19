@@ -4,21 +4,23 @@ import { UserContextProvider } from './userContext'
 import { useState } from 'react'
 import { CheeseContext } from './cheeseContext'
 import './App.css'
+import React from 'react'
+import Footer from './components/footer'
 
 const cheeses = [
   {
     name: 'Cheddar',
-    photo: '.\src\assets\cheese.jpg',
+    photo: '../cheese.jpg',
     isAdmin: false
   },
   {
     name: 'Emental',
-    photo: 'src\assets\cheese.jpg',
+    photo: '../cheese.jpg',
     isAdmin: true
   },
   {
     name: 'Babibel',
-    photo: 'src\assets\cheese.jpg',
+    photo: '../cheese.jpg',
     isAdmin: false
   }
 ]
@@ -29,14 +31,17 @@ function App() {
   const value = {cheeses, isSelected};
 
   return (
-    <CheeseContext.Provider value={value}>
-      <UserContextProvider>
-        <div>
-          <Header />
-          <ItemScreen  />
-        </div>
-      </UserContextProvider>
-    </CheeseContext.Provider>
+    <React.Fragment>
+      <CheeseContext.Provider value={value}>
+        <UserContextProvider>
+          <div className="container">
+            <Header/>
+            <ItemScreen/>
+          </div>
+        </UserContextProvider>
+        <Footer onClick={() => setIsSelected(true)} />
+      </CheeseContext.Provider>
+    </React.Fragment>
   )
 }
 
