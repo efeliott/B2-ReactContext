@@ -3,11 +3,12 @@ import ItemScreen from './components/itemScreen'
 import { UserContextProvider } from './userContext'
 import { useState } from 'react'
 import { CheeseContext } from './cheeseContext'
+import './App.css'
 
 const cheeses = [
   {
     name: 'Cheddar',
-    photo: './assets/cheese.jpg',
+    photo: '.\src\assets\cheese.jpg',
     isAdmin: false
   },
   {
